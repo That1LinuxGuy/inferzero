@@ -6,6 +6,7 @@
   bash,
   ocl-icd,
   level-zero,
+  intel-compute-runtime,
   curl,
   libidn2,
   source ? null,
@@ -54,7 +55,7 @@ stdenv.mkDerivation {
       makeWrapper "$out/libexec/inferzero/$program" "$out/bin/$program" \
         --chdir "$out/share/inferzero" \
         --prefix LD_LIBRARY_PATH : \
-          "${lib.makeLibraryPath [ ocl-icd level-zero curl libidn2 ]}"
+          "${lib.makeLibraryPath [ ocl-icd level-zero intel-compute-runtime.drivers curl libidn2 ]}"
     done
 
     runHook postInstall
