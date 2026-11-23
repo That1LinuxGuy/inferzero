@@ -9,7 +9,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      packages.${system}.default = pkgs.callPackage ./package.nix {
+      packages.${system}.default = pkgs.callPackage ./nix/package.nix {
         source = ./.;
       };
     };
