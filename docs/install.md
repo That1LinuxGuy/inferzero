@@ -83,6 +83,7 @@ The headless server and a terminal launcher (no window), on Ubuntu 24.04 or newe
    template](https://github.com/catduckgnaf/catduck-unraid-templates/blob/main/templates/inferzero.xml) and [its setup
    notes](https://github.com/catduckgnaf/catduck-unraid-templates#inferzero), with an image built from release
    2026.11.21.18 (issue #46). Its maintainer has started it on an Intel GPU host but not run a model with it yet.
+7. **Using Nix** (currently only tested on NixOS using flakes): requires `hardware.graphics.extraPackages = with pkgs; [intel-compute-runtime];` Either use `nix run github:rizagp/inferzero` or add it to flake inputs as `inferzero.url = "github:rizagp/inferzero"`
 
 From the sources instead: `./build.sh` (g++ 13 or newer) builds `runz`, `serverz`, `mgpu_probe`, `ref_forward` (the f32
 reference for KL checks) and `gpu_bench` into `bin/`. The benchmarks have Linux versions in bash: `bench/website_bench.sh`,
